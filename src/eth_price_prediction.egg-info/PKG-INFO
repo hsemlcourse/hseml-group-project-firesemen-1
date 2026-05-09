@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: eth-price-prediction
+Version: 1.0.0
+Summary: ETH/USD next-minute close prediction project
+Requires-Python: >=3.10
+Requires-Dist: numpy==1.26.4
+Requires-Dist: pandas==2.2.2
+Requires-Dist: scikit-learn==1.4.2
+Requires-Dist: matplotlib==3.8.4
+Requires-Dist: joblib==1.4.2
+Requires-Dist: requests==2.32.3
+Requires-Dist: fastapi==0.111.0
+Requires-Dist: uvicorn[standard]==0.30.1
+Requires-Dist: pydantic==2.7.4
+Requires-Dist: streamlit==1.36.0
+Requires-Dist: xgboost==2.0.3
+Requires-Dist: lightgbm==4.3.0
