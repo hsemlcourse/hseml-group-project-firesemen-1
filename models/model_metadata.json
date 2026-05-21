@@ -1,0 +1,143 @@
+{
+  "model_type": "Ridge(alpha=1.0, solver=lsqr)",
+  "target": "next one-minute ETHUSD close price",
+  "random_state": 42,
+  "features": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Quote asset volume",
+    "Number of trades",
+    "Taker buy base asset volume",
+    "Taker buy quote asset volume",
+    "return_1m",
+    "hl_spread_rel",
+    "oc_change_rel",
+    "volume_log",
+    "quote_volume_log",
+    "trades_log",
+    "taker_buy_base_ratio",
+    "taker_buy_quote_ratio",
+    "close_lag_1",
+    "close_lag_5",
+    "close_lag_10",
+    "close_lag_30",
+    "close_lag_60",
+    "return_lag_1",
+    "return_lag_5",
+    "return_lag_10",
+    "return_lag_30",
+    "return_lag_60",
+    "close_ma_5_rel",
+    "close_ma_15_rel",
+    "close_ma_60_rel",
+    "return_std_5",
+    "return_std_15",
+    "return_std_60",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "feature_count": 35,
+  "data_rows_total": 4278673,
+  "modeling_tail_rows": 50000,
+  "feature_rows": 49999,
+  "split": {
+    "type": "chronological 70/15/15 on latest 50k sample",
+    "train_rows": 34999,
+    "val_rows": 7500,
+    "test_rows": 7500
+  },
+  "validation_experiments": [
+    {
+      "model": "Persistence baseline",
+      "MAE": 1.9548559999999975,
+      "RMSE": 2.843278300366203,
+      "MAPE_%": 0.04401408073558038,
+      "R2": 0.9992684118473524,
+      "direction_accuracy_%": 1.1066666666666667,
+      "fit_seconds": 0.0
+    },
+    {
+      "model": "ElasticNet(alpha=0.001)",
+      "MAE": 1.9630878696021725,
+      "RMSE": 2.853508031619836,
+      "MAPE_%": 0.044197261417146735,
+      "R2": 0.9992631380665129,
+      "direction_accuracy_%": 49.586666666666666,
+      "fit_seconds": 0.24
+    },
+    {
+      "model": "Ridge(alpha=1.0)",
+      "MAE": 1.976209926811093,
+      "RMSE": 2.8690419105636673,
+      "MAPE_%": 0.044494269970984095,
+      "R2": 0.999255093596619,
+      "direction_accuracy_%": 50.54666666666666,
+      "fit_seconds": 0.09
+    },
+    {
+      "model": "RandomForest(tiny)",
+      "MAE": 2.0806247713801156,
+      "RMSE": 2.9601571417253645,
+      "MAPE_%": 0.046850727224843354,
+      "R2": 0.9992070287246605,
+      "direction_accuracy_%": 48.66666666666667,
+      "fit_seconds": 2.44
+    },
+    {
+      "model": "SGDRegressor",
+      "MAE": 2.090130680024028,
+      "RMSE": 3.0191826025367776,
+      "MAPE_%": 0.04706299660309124,
+      "R2": 0.9991750897816353,
+      "direction_accuracy_%": 50.18666666666667,
+      "fit_seconds": 0.13
+    },
+    {
+      "model": "DecisionTree(max_depth=8)",
+      "MAE": 2.1934705858832486,
+      "RMSE": 3.0593127692293467,
+      "MAPE_%": 0.04939745267671668,
+      "R2": 0.9991530150731619,
+      "direction_accuracy_%": 49.346666666666664,
+      "fit_seconds": 0.85
+    },
+    {
+      "model": "ExtraTrees(tiny)",
+      "MAE": 2.2218550406623723,
+      "RMSE": 3.3189304878666177,
+      "MAPE_%": 0.05003628158953799,
+      "R2": 0.999003162801604,
+      "direction_accuracy_%": 49.81333333333333,
+      "fit_seconds": 0.3
+    },
+    {
+      "model": "DummyRegressor(mean)",
+      "MAE": 135.98163114770858,
+      "RMSE": 150.46191872941648,
+      "MAPE_%": 3.0447872602958714,
+      "R2": -1.0487129577345295,
+      "direction_accuracy_%": 49.6,
+      "fit_seconds": 0.08
+    }
+  ],
+  "test_metrics": {
+    "MAE": 3.0067641343843867,
+    "RMSE": 6.311113635883866,
+    "MAPE_%": 0.07071845441066799,
+    "R2": 0.9994004145548709,
+    "direction_accuracy_%": 49.85333333333333
+  },
+  "baseline_test_metrics": {
+    "MAE": 2.940422666666659,
+    "RMSE": 5.945111810554947,
+    "MAPE_%": 0.06899875933449572,
+    "R2": 0.9994679418064839,
+    "direction_accuracy_%": 0.46666666666666673
+  },
+  "source_file": "ETHUSD_1m_Binance.csv inside ETHUSD_1m_Binance.zip",
+  "first_open_time": "2025-09-06 17:45:00",
+  "last_open_time": "2025-10-11 11:04:00"
+}

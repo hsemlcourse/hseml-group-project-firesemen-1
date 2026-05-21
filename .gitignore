@@ -2,19 +2,6 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+data/raw/
+*.zip
 .env
-.DS_Store
-*.log
-*.pkl
-
-# Data/model artifacts: keep small sample and final model only when needed.
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
-models/*.joblib
-!models/eth_next_close_model.joblib
-
-# Local outputs
-htmlcov/
-.coverage

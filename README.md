@@ -1,139 +1,326 @@
-# CP2: прогноз ETH/USD Close на 1 минуту вперёд
+# ETHUSD Price Prediction — CP3
 
-Студент: Холодилов Семён Максимович\
-Группа: БИВ238
+Проект решает учебную ML-зачу: прогнозирование цены закрытия следующей минутной свечи ETHUSD по последним минутным OHLCV-свечам Binance.
 
-Проект решает задачу регрессии временного ряда: по минутным OHLCV-свечам предсказать `Close(t+1)`. Основная метрика - MAE, потому что она измеряется в долларах и прямо показывает среднюю абсолютную ошибку прогноза. Дополнительно считаются RMSE и R2.
+CP3 добавляет к результатам предыдущих этапов:
 
-## Что именно закрывает CP2
+- FastAPI-сервис для инференса модели;
+- Streamlit-интерфейс для демонстрации;
+- Docker/Docker Compose для локального деплоя;
+- PDF/Markdown-отчёт;
+- тесты API и примеры запросов.
 
--   Проверка пропусков, дублей, timestamps, OHLCV-логики и временных разрывов.
--   Проверка экстремальных минутных log-return как выбросов.
--   Feature engineering без data leakage: лаги, rolling-признаки, EMA, RSI, временные признаки.
--   Хронологический train/validation/test split без shuffle.
--   Baseline без feature engineering и финансовый baseline `Close(t+1) = Close(t)`.
--   5+ моделей: LinearRegression, Ridge, ElasticNet, RandomForest, ExtraTrees, Ridge+PCA95.
--   Weighted blending ансамбль `Naive + Ridge`.
--   Перебор гиперпараметров на validation split.
--   Ruff, pytest, requirements/pyproject, Dockerfile и docker-compose.
--   Самостоятельный парсер Binance API: `scripts/download_binance_klines.py`.
+> Важно: это учебный ML-проект, а не финансовая рекомендация. На контрольном пересчёте для CP3 простой persistence baseline оказался лучше Ridge по RMSE на test-части, поэтому API возвращает оба прогноза и отдельно показывает рекомендованный вариант по метрикам.
 
-## Структура
+---
 
-``` text
+## Структура проекта
+
+```text
 .
-├── data/sample/ethusd_1m_sample.csv
-├── docs/DEPLOYMENT.md
-├── notebooks/cp2_eth_full_pipeline.ipynb
-├── report/
-│   ├── report.md
-│   ├── report.pdf
-│   ├── experiment_results.csv
-│   ├── hyperparameter_search_details.csv
-│   ├── dataset_description.json
-│   ├── cleaning_report.json
-│   ├── outlier_report.json
-│   └── figures/
+├── app/
+│   ├── main.py                  # FastAPI API: /health, /model-info, /predict
+│   └── streamlit_app.py          # Streamlit demo UI
+├── data/
+│   └── raw/
+│       └── ETHUSD_1m_Binance.zip # полный датасет, не хранится в git при большом размере
+├── examples/
+│   ├── sample_candles.csv        # маленький CSV для Streamlit-демо
+│   └── sample_payload.json       # пример JSON-запроса к /predict
+├── models/
+│   ├── final_model.joblib        # сохранённая модель
+│   └── model_metadata.json       # метрики, признаки, описание сплита
+├── reports/
+│   ├── cp3_report.md             # отчёт CP3 в Markdown
+│   ├── cp3_report.pdf            # отчёт CP3 в PDF
+│   └── video_link.md             # ссылка на видео работы деплоя
 ├── scripts/
-│   ├── download_binance_klines.py
-│   ├── make_api_example.py
-│   └── train.py
-├── src/eth_price/
+│   ├── train_export_model.py     # переобучение и экспорт модели
+│   └── curl_predict.sh           # пример curl-запроса
+├── src/
+│   └── eth_cp3/                  # код подготовки признаков и инференса
 ├── tests/
+│   └── test_api.py               # smoke-тесты API
 ├── Dockerfile
 ├── docker-compose.yml
 ├── pyproject.toml
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
-## Данные текущего CP2-прогона
+---
 
--   120000 строк, 10 колонок;
--   период: `2025-07-20 03:05:00` - `2025-10-11 11:04:00`;
--   пропуски: 0;
--   дубликаты timestamp: 0;
--   некорректные OHLCV-строки: 0;
--   разрывы временного ряда не по 1 минуте: 0;
--   после feature engineering: 119938 строк, 118 признаков;
--   найдено 186 экстремальных минутных log-return по порогу 6 sigma.
+## Данные
 
-Экстремальные доходности не удаляются автоматически, потому что для криптовалют они могут быть реальными рыночными движениями. Удаляются только физически невозможные записи.
+Основной датасет: `ETHUSD_1m_Binance.zip`, внутри которого лежит CSV с минутными свечами ETHUSD.
 
-## Быстрый запуск
+Для обучения/пересчёта модели архив должен лежать здесь:
 
-Windows PowerShell:
+```text
+data/raw/ETHUSD_1m_Binance.zip
+```
 
-``` powershell
+Полный CSV не нужно загружать через Streamlit. Интерфейс нужен для демонстрации инференса, поэтому для него используется маленький файл:
+
+```text
+examples/sample_candles.csv
+```
+
+Это сделано специально: браузерная загрузка больших файлов в Streamlit ограничена и не нужна для проверки деплоя.
+
+---
+
+## Быстрый запуск на Windows PowerShell
+
+Команды ниже выполняются из корня репозитория.
+
+### 1. Создать виртуальное окружение
+
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-pip install -e .
-python scripts/train.py
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-Linux/macOS:
+Если PowerShell запрещает активацию окружения:
 
-``` bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e .
-python scripts/train.py
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\.venv\Scripts\Activate.ps1
 ```
 
-`python scripts/train.py` пересчитывает метрики, графики и модельный артефакт `models/eth_next_close_model.joblib`.
+### 2. Проверить тесты и линтер
 
-## Самостоятельный парсинг данных
-
-Пример контрольного запуска Binance API:
-
-``` bash
-python scripts/download_binance_klines.py \
-  --symbol ETHUSDT \
-  --interval 1m \
-  --start 2025-01-01T00:00:00Z \
-  --end 2025-01-01T02:00:00Z \
-  --output data/raw/ethusdt_1m_binance_api_check.csv
+```powershell
+$env:PYTHONPATH="src;."
+python -m pytest -q
+python -m ruff check .
 ```
 
-В локальном CP2-прогоне эта команда сохранила 121 строку.
+Ожидаемо тесты API должны проходить:
 
-## Проверки качества кода
-
-``` bash
-ruff check .
-ruff format --check .
-pytest -q
+```text
+2 passed
 ```
 
-При сборке этого CP2-архива проверки прошли: ruff без ошибок, pytest - 4 passed.
+### 3. Запустить FastAPI
 
-## Docker
+```powershell
+$env:PYTHONPATH="src;."
+python -m uvicorn app.main:app --reload
+```
 
-``` bash
-docker compose build
+После запуска открыть:
+
+```text
+http://localhost:8000/docs
+```
+
+Проверка health endpoint:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/health
+```
+
+Ожидаемый ответ:
+
+```text
+status
+------
+ok
+```
+
+Информация о модели:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/model-info
+```
+
+### 4. Проверить `/predict`
+
+В новом PowerShell-терминале, пока FastAPI продолжает работать:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+$env:PYTHONPATH="src;."
+Invoke-RestMethod `
+  -Uri "http://localhost:8000/predict" `
+  -Method Post `
+  -ContentType "application/json" `
+  -InFile "examples\sample_payload.json"
+```
+
+В ответе должны быть поля:
+
+```text
+model_prediction
+persistence_baseline_prediction
+recommended_prediction
+last_close
+model_used
+```
+
+### 5. Запустить Streamlit
+
+FastAPI должен продолжать работать в первом терминале.
+
+Во втором терминале:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+$env:PYTHONPATH="src;."
+python -m streamlit run app\streamlit_app.py
+```
+
+Открыть:
+
+```text
+http://localhost:8501
+```
+
+Для проверки загружать файл:
+
+```text
+examples/sample_candles.csv
+```
+
+Не загружать полный `ETHUSD_1m_Binance.csv`: он слишком большой для браузерного демо и для CP3 не нужен.
+
+---
+
+## Запуск через Docker
+
+Из корня проекта:
+
+```powershell
 docker compose up --build
 ```
 
-После запуска:
+После сборки открыть:
 
--   FastAPI: `http://localhost:8000/docs`
--   Streamlit: `http://localhost:8501`
+```text
+FastAPI:   http://localhost:8000/docs
+Streamlit: http://localhost:8501
+```
 
-Для `POST /predict` сначала должен быть создан файл модели через `python scripts/train.py`.
+Остановить контейнеры:
 
-## Итоговые результаты CP2-прогона на 120000 строках
+```powershell
+docker compose down
+```
 
-| Model | Val MAE | Test MAE | Test RMSE | Comment |
-|----|---:|---:|---:|----|
-| Naive close(t) | 1.8767 | **2.3458** | 4.3833 | лучший test MAE |
-| Weighted blend: naive + Ridge | 1.8766 | 2.3469 | **4.3796** | лучший test RMSE, финальный ансамбль |
-| Baseline LinearRegression without FE | **1.8759** | 2.3501 | 4.4084 | baseline без FE |
-| Ridge | 1.8877 | 2.4123 | 4.8587 | лучшая ML-модель внутри blend |
-| ElasticNet | 1.8888 | 2.3910 | 4.7675 | регуляризованная линейная модель |
-| LinearRegression | 1.8893 | 2.3922 | 4.7594 | линейная модель на FE |
-| Ridge+PCA95 | 2.0069 | 2.5646 | 5.5623 | PCA ухудшил качество |
-| RandomForest | 2.6785 | 2.7207 | 4.6479 | деревья хуже линейных моделей |
-| ExtraTrees | 2.7043 | 2.8806 | 5.5024 | деревья хуже линейных моделей |
+---
 
-Вывод: на горизонте 1 минута naive baseline `Close(t+1) = Close(t)` очень силён. Weighted blend немного улучшает RMSE, но не улучшает MAE. Поэтому нельзя утверждать, что сложные ML-модели существенно превзошли baseline.
+## Переобучение модели
+
+Чтобы заново пересчитать модель и метрики, положить архив с данными сюда:
+
+```text
+data/raw/ETHUSD_1m_Binance.zip
+```
+
+Затем выполнить:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+$env:PYTHONPATH="src;."
+python scripts\train_export_model.py
+```
+
+Скрипт обновляет:
+
+```text
+models/final_model.joblib
+models/model_metadata.json
+```
+
+Метаданные можно посмотреть так:
+
+```powershell
+Get-Content models\model_metadata.json
+```
+
+---
+
+## Текущий честный статус модели
+
+Финальная модель для деплоя: `Ridge(alpha=1.0, solver=lsqr)`.
+
+На test-части текущего CP3-пересчёта:
+
+| Подход | MAE | RMSE | MAPE, % | Direction accuracy, % |
+|---|---:|---:|---:|---:|
+| Ridge | 3.0068 | 6.3111 | 0.0707 | 49.85 |
+| Persistence baseline | 2.9404 | 5.9451 | 0.0690 | 0.47 |
+
+Вывод: по RMSE baseline оказался лучше Ridge, поэтому в API отдельно возвращается `recommended_prediction`, выбранный по метрикам из `models/model_metadata.json`.
+
+---
+
+
+## Типичные проблемы
+
+### `PYTHONPATH=src` не работает в PowerShell
+
+Это Linux/macOS-синтаксис. В PowerShell нужно так:
+
+```powershell
+$env:PYTHONPATH="src;."
+```
+
+После этого запускать нужную команду, например:
+
+```powershell
+python -m uvicorn app.main:app --reload
+```
+
+### `ModuleNotFoundError: No module named 'app'`
+
+Скорее всего, CP3-файлы распакованы во вложенную папку `cp3_submit`, а не в корень репозитория.
+
+Проверить:
+
+```powershell
+Get-ChildItem
+Get-ChildItem .\cp3_submit
+```
+
+Если внутри `cp3_submit` лежат `app`, `src`, `models`, `reports`, нужно скопировать их в корень:
+
+```powershell
+Copy-Item .\cp3_submit\* . -Recurse -Force
+```
+
+### `Fatal error in launcher` у pip
+
+Такое бывает, если `.venv` был скопирован из другой папки. Нужно удалить и создать окружение заново:
+
+```powershell
+deactivate
+Remove-Item -Recurse -Force .\.venv
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Если `.venv` не удаляется:
+
+```powershell
+cmd /c rmdir /s /q .venv
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### Streamlit не принимает большой CSV
+
+Для демонстрации надо использовать:
+
+```text
+examples/sample_candles.csv
+```
+
+Полный датасет используется только для обучения через `scripts/train_export_model.py`, а не для загрузки в веб-интерфейс.

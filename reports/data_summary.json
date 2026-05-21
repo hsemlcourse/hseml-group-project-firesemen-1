@@ -1,0 +1,40 @@
+{
+  "source_file": "ETHUSD_1m_Binance.csv",
+  "rows_total": 4278673,
+  "columns_total": 12,
+  "columns": [
+    "Open time",
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Close time",
+    "Quote asset volume",
+    "Number of trades",
+    "Taker buy base asset volume",
+    "Taker buy quote asset volume",
+    "Ignore"
+  ],
+  "first_open_time": "2017-08-17 04:00:00",
+  "last_open_time": "2025-10-11 11:04:00",
+  "sample_first_open_time": "2025-09-06 17:45:00",
+  "sample_last_open_time": "2025-10-11 11:04:00",
+  "missing_values_on_50k_sample": {
+    "Open time": 0,
+    "Open": 0,
+    "High": 0,
+    "Low": 0,
+    "Close": 0,
+    "Volume": 0,
+    "Close time": 0,
+    "Quote asset volume": 0,
+    "Number of trades": 0,
+    "Taker buy base asset volume": 0,
+    "Taker buy quote asset volume": 0,
+    "Ignore": 0
+  },
+  "duplicates_on_50k_sample": 0,
+  "tail_rows_for_modeling": 50000,
+  "feature_count": 35
+}
