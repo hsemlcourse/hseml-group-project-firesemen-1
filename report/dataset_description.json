@@ -1,0 +1,18 @@
+{
+  "rows": 120000,
+  "columns": 10,
+  "time_min": "2025-07-20 03:05:00",
+  "time_max": "2025-10-11 11:04:00",
+  "missing_values": {
+    "Open time": 0,
+    "Open": 0,
+    "High": 0,
+    "Low": 0,
+    "Close": 0,
+    "Volume": 0,
+    "Quote asset volume": 0,
+    "Number of trades": 0,
+    "Taker buy base asset volume": 0,
+    "Taker buy quote asset volume": 0
+  }
+}

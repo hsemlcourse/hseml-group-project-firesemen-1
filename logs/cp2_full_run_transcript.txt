@@ -1,0 +1,809 @@
+﻿**********************
+Начало записи сценария Windows PowerShell
+Время начала: 20260509132908
+Имя пользователя: DESKTOP-TSQFGE7\Семён
+Запуск от имени пользователя: DESKTOP-TSQFGE7\Семён
+Имя конфигурации: 
+Компьютер: DESKTOP-TSQFGE7 (Microsoft Windows NT 10.0.26200.0)
+Ведущее приложение: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+ИД процесса: 12536
+PSVersion: 5.1.26100.8328
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8328
+BuildVersion: 10.0.26100.8328
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Транскрибирование запущено, выходной файл logs\cp2_full_run_transcript.txt
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-Date
+
+9 мая 2026 г. 13:29:16
+
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python --version
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) pip --version
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) pip freeze > logs\pip_freeze.txt
+>> ParameterBinding(Out-File): имя="InputObject"; значение="altair==5.5.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="annotated-doc==0.0.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="annotated-types==0.7.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="anyio==4.13.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="asttokens==3.0.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="attrs==26.1.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="blinker==1.9.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="cachetools==5.5.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="certifi==2026.4.22"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="charset-normalizer==3.4.7"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="click==8.3.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="colorama==0.4.6"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="comm==0.2.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="contourpy==1.3.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="cycler==0.12.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="debugpy==1.8.20"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="decorator==5.2.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="dnspython==2.8.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="email-validator==2.3.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="# Editable install with no version control (eth-price-prediction==1.0.0)"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="-e c:\users\ёхь╕э\downloads\firesemen_max_score"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="executing==2.2.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="fastapi==0.111.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="fastapi-cli==0.0.24"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="fastjsonschema==2.21.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="fonttools==4.62.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="gitdb==4.0.12"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="GitPython==3.1.50"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="h11==0.16.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="httpcore==1.0.9"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="httptools==0.7.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="httpx==0.28.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="idna==3.13"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="iniconfig==2.3.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="ipykernel==6.29.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="ipython==9.13.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="ipython_pygments_lexers==1.1.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="jedi==0.20.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="Jinja2==3.1.6"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="joblib==1.4.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="jsonschema==4.26.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="jsonschema-specifications==2025.9.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="jupyter_client==8.8.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="jupyter_core==5.9.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="kiwisolver==1.5.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="lightgbm==4.3.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="markdown-it-py==4.2.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="MarkupSafe==3.0.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="matplotlib==3.8.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="matplotlib-inline==0.2.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="mdurl==0.1.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="narwhals==2.21.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="nbformat==5.10.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="nest-asyncio==1.6.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="numpy==1.26.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="orjson==3.11.9"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="packaging==24.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pandas==2.2.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="parso==0.8.7"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pillow==10.4.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="platformdirs==4.9.6"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pluggy==1.6.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="prompt_toolkit==3.0.52"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="protobuf==5.29.6"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="psutil==7.2.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pure_eval==0.2.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pyarrow==24.0.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pydantic==2.7.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pydantic_core==2.18.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pydeck==0.9.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="Pygments==2.20.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pyparsing==3.3.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pytest==8.2.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="python-dateutil==2.9.0.post0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="python-dotenv==1.2.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="python-multipart==0.0.27"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pytz==2026.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="PyYAML==6.0.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="pyzmq==27.1.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="referencing==0.37.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="requests==2.32.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="rich==13.9.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="rich-toolkit==0.19.7"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="rpds-py==0.30.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="ruff==0.4.10"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="scikit-learn==1.4.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="scipy==1.17.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="shellingham==1.5.4"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="six==1.17.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="smmap==5.0.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="stack-data==0.6.3"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="starlette==0.37.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="streamlit==1.36.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="tenacity==8.5.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="threadpoolctl==3.6.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="toml==0.10.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="tornado==6.5.5"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="traitlets==5.15.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="typer==0.25.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="typing_extensions==4.15.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="tzdata==2026.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="ujson==5.12.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="urllib3==2.7.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="uvicorn==0.30.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="watchdog==4.0.2"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="watchfiles==1.1.1"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="wcwidth==0.7.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="websockets==16.0"
+>> ParameterBinding(Out-File): имя="InputObject"; значение="xgboost==2.0.3"
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) git status 2>&1 | Tee-Object logs\git_status.txt
+git : fatal: not a git repository (or any of the parent directories): .git
+строка:1 знак:1
++ git status 2>&1 | Tee-Object logs\git_status.txt
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: not a gi...ectories):
+   .git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) git branch 2>&1 | Tee-Object logs\git_branch.txt
+git : fatal: not a git repository (or any of the parent directories): .git
+строка:1 знак:1
++ git branch 2>&1 | Tee-Object logs\git_branch.txt
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: not a gi...ectories):
+   .git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python -m pip install --upgrade pip
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) pip install -r requirements.txt
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) pip install -e .
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python -c "import eth_price; print('eth_price import OK')"
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python scripts/download_binance_klines.py --help 2>&1 | Tee-Object logs\parser_help.txt
+usage: download_binance_klines.py [-h] [--symbol SYMBOL] [--interval INTERVAL]
+                                  --start START --end END [--output OUTPUT]
+
+Download Binance minute candles via public REST API. This script is the
+reproducible data parser for the project. It is intentionally kept separate
+from Kaggle data: Kaggle was convenient for CP1, while this parser shows how
+to collect the same OHLCV candle structure from the source exchange.
+
+options:
+  -h, --help           show this help message and exit
+  --symbol SYMBOL      Binance symbol, e.g. ETHUSDT
+  --interval INTERVAL
+  --start START        ISO datetime, e.g. 2025-01-01T00:00:00Z
+  --end END            ISO datetime, e.g. 2025-01-07T00:00:00Z
+  --output OUTPUT
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python scripts/download_binance_klines.py `
+  --symbol ETHUSDT `
+  --interval 1m `
+  --start 2025-01-01T00:00:00Z `
+  --end 2025-01-01T02:00:00Z `
+  --output data\raw\ethusdt_1m_binance_api_check.csv `
+  2>&1 | Tee-Object logs\parser_run.txt
+python : urllib3.exceptions.SSLError: EOF occurred in violation of protocol
+ (_ssl.c:1002)
+строка:1 знак:1
++ python scripts/download_binance_klines.py `
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (urllib3.excepti...l (_ssl.c:1
+   002):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\urllib3\connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\urllib3\util\retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg
+-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.binance.com
+', port=443): Max retries exceeded with url: /api/v3/klines?symbol=ETHUSDT&
+interval=1m&startTime=1735689600000&endTime=1735696800000&limit=1000 (Cause
+d by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c
+:1002)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\scripts\download_binan
+ce_klines.py", line 106, in <module>
+    main()
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\scripts\download_binan
+ce_klines.py", line 94, in main
+    df = fetch_klines(
+         ^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\scripts\download_binan
+ce_klines.py", line 65, in fetch_klines
+    response = requests.get(BINANCE_KLINES_URL, params=params, timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-package
+s\requests\adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.binance.com', p
+ort=443): Max retries exceeded with url: /api/v3/klines?symbol=ETHUSDT&inte
+rval=1m&startTime=1735689600000&endTime=1735696800000&limit=1000 (Caused by
+ SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:100
+2)')))
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python scripts/download_binance_klines.py `
+  --symbol ETHUSDT `
+  --interval 1m `
+  --start 2025-01-01T00:00:00Z `
+  --end 2025-01-01T02:00:00Z `
+  --output data\raw\ethusdt_1m_binance_api_check.csv `
+  2>&1 | Tee-Object logs\parser_run.txt
+Saved 121 rows to data\raw\ethusdt_1m_binance_api_check.csv
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-Item data\raw\ethusdt_1m_binance_api_check.csv
+
+
+    Каталог: C:\Users\Семён\Downloads\firesemen_max_score\data\raw
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        09.05.2026     13:38          19939 ethusdt_1m_binance_api_ch
+                                                  eck.csv
+
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python -c "import pandas as pd; df=pd.read_csv('data/raw/ethusdt_1m_binance_api_check.csv'); print(df.head()); print(df.shape); print(df.columns.tolist())" 2>&1 | Tee-Object logs\parser_data_check.txt
+             Open time     Open  ...  Taker buy quote asset volume  Ignore
+0  2025-01-01 00:00:00  3337.78  ...                 222751.345731       0
+1  2025-01-01 00:01:00  3337.99  ...                 103626.095655       0
+2  2025-01-01 00:02:00  3338.86  ...                 267131.850080       0
+3  2025-01-01 00:03:00  3342.32  ...                 102757.873866       0
+4  2025-01-01 00:04:00  3339.98  ...                 421164.034611       0
+
+[5 rows x 12 columns]
+(121, 12)
+['Open time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Close time', 'Quote asset volume', 'Number of trades', 'Taker buy base asset volume', 'Taker buy quote asset volume', 'Ignore']
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python scripts/train.py 2>&1 | Tee-Object logs\train_full.txt
+python : C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\feature
+s.py:92: PerformanceWarning: DataFrame is highly fragmented.  This is usual
+ly the result of calling `frame.insert` many times, which has poor performa
+nce.  Consider joining all columns at once using pd.concat(axis=1) instead.
+ To get a de-fragmented frame, use `newframe = frame.copy()`
+строка:1 знак:1
++ python scripts/train.py 2>&1 | Tee-Object logs\train_full.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\╤хь╕э\...= frame.cop
+   y()`:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+  data[f"volume_ema_{span}"] = data["Volume"].ewm(span=span, adjust=False).
+mean()
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:99:
+PerformanceWarning: DataFrame is highly fragmented.  This is usually the re
+sult of calling `frame.insert` many times, which has poor performance.  Con
+sider joining all columns at once using pd.concat(axis=1) instead. To get a
+ de-fragmented frame, use `newframe = frame.copy()`
+  data["rsi_14"] = 100 - (100 / (1 + relative_strength))
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:101:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["minute"] = data[TIME_COLUMN].dt.minute
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:102:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["hour"] = data[TIME_COLUMN].dt.hour
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:103:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["dayofweek"] = data[TIME_COLUMN].dt.dayofweek
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:104:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["minute_sin"] = np.sin(2 * np.pi * data["minute"] / 60)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:105:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["minute_cos"] = np.cos(2 * np.pi * data["minute"] / 60)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:106:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["hour_sin"] = np.sin(2 * np.pi * data["hour"] / 24)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:107:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["hour_cos"] = np.cos(2 * np.pi * data["hour"] / 24)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:108:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["dayofweek_sin"] = np.sin(2 * np.pi * data["dayofweek"] / 7)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:109:
+ PerformanceWarning: DataFrame is highly fragmented.  This is usually the r
+esult of calling `frame.insert` many times, which has poor performance.  Co
+nsider joining all columns at once using pd.concat(axis=1) instead. To get
+a de-fragmented frame, use `newframe = frame.copy()`
+  data["dayofweek_cos"] = np.cos(2 * np.pi * data["dayofweek"] / 7)
+C:\Users\╤хь╕э\Downloads\firesemen_max_score\.venv\Lib\site-packages\sklear
+n\linear_model\_coordinate_descent.py:678: ConvergenceWarning: Objective di
+d not converge. You might want to increase the number of iterations, check
+the scale of the features or consider increasing regularisation. Duality ga
+p: 2.316e+06, tolerance: 1.212e+06
+  model = cd_fast.enet_coordinate_descent(
+{
+  "data_path": "C:\\Users\\╤хь╕э\\Downloads\\firesemen_max_score\\data\\sample\\ethusd_1m_sample.csv",
+  "model_path": "models\\eth_next_close_model.joblib",
+  "metrics_path": "report\\experiment_results.csv",
+  "best_ml_model": "Ridge",
+  "naive_weight": 0.93,
+  "rows_after_cleaning": 120000,
+  "rows_after_features": 119938,
+  "n_features": 118,
+  "results": [
+    {
+      "model": "Baseline LinearRegression without FE",
+      "hypothesis": "╧ЁюёЄр  ышэхщэр  ьюфхы№ эр шёїюфэ√ї OHLCV фрёЄ Єюўъє юЄёўхЄр схч feature engineering.",
+      "params": "{}",
+      "val_mae": 1.8758724304447618,
+      "val_rmse": 3.0303334487693507,
+      "val_r2": 0.9998296580030853,
+      "test_mae": 2.350106878687229,
+      "test_rmse": 4.408409759583705,
+      "test_r2": 0.9995467057296128,
+      "comment": "Baseline схч эют√ї яЁшчэръют."
+    },
+    {
+      "model": "Weighted blend: naive + Ridge",
+      "hypothesis": "┬чтх°хээ√щ рэёрьсы№ ёЄрсшышчшЁєхЄ ML-яЁюуэюч ёшы№э√ь эрштэ√ь baseline.",
+      "params": "{\"alpha\": 0.1, \"ml_model\": \"Ridge\", \"naive_weight\": 0.93}",
+      "val_mae": 1.8766410215175602,
+      "val_rmse": 3.032103762701741,
+      "val_r2": 0.9998294112253838,
+      "test_mae": 2.346854416743721,
+      "test_rmse": 4.379624342556603,
+      "test_r2": 0.9995525117566867,
+      "comment": "╘шэры№эр  ьюфхы№: рэёрьсы№/сыхэфшэу, тхё эрщфхэ эр validation."
+    },
+    {
+      "model": "Naive close(t)",
+      "hypothesis": "═р ьшэєЄэюь уюЁшчюэЄх ыєў°р  яЁюёЄр  ¤тЁшёЄшър - Ўхэр ёыхфє■∙хщ ьшэєЄ√ яЁшьхЁэю Ёртэр Єхъє∙хщ.",
+      "params": "{}",
+      "val_mae": 1.8767422600188939,
+      "val_rmse": 3.0362759540542257,
+      "val_r2": 0.9998289414402197,
+      "test_mae": 2.3458184647879436,
+      "test_rmse": 4.3833252310491,
+      "test_r2": 0.999551755160374,
+      "comment": "╤шы№э√щ Їшэрэёют√щ baseline фы  уюЁшчюэЄр 1 ьшэєЄр."
+    },
+    {
+      "model": "Ridge",
+      "hypothesis": "L2-Ёхуєы ЁшчрЎш  фюыцэр ёЄрсшышчшЁютрЄ№ ышэхщэє■ ьюфхы№ эр ёъюЁЁхышЁютрээ√ї яЁшчэрърї.",
+      "params": "{\"alpha\": 0.1}",
+      "val_mae": 1.8876787220253755,
+      "val_rmse": 3.0299509175214396,
+      "val_r2": 0.9998296533812417,
+      "test_mae": 2.412310603533606,
+      "test_rmse": 4.858656044786847,
+      "test_r2": 0.9994492681178507,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    },
+    {
+      "model": "ElasticNet",
+      "hypothesis": "L1+L2-Ёхуєы ЁшчрЎш  ьюцхЄ чрэєышЄ№ ёырс√х яЁшчэръш ш ёэшчшЄ№ яхЁхюсєўхэшх.",
+      "params": "{\"alpha\": 0.0001, \"l1_ratio\": 0.2}",
+      "val_mae": 1.8887941319695098,
+      "val_rmse": 3.0562228798831,
+      "val_r2": 0.9998266865066175,
+      "test_mae": 2.3910009371023677,
+      "test_rmse": 4.767497730178985,
+      "test_r2": 0.9994697399631014,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    },
+    {
+      "model": "LinearRegression",
+      "hypothesis": "╦шэхщэр  чртшёшьюёЄ№ ыруют ш Єхъє∙шї Ўхэ ьюцхЄ с√Є№ фюёЄрЄюўэющ фы  юўхэ№ ъюЁюЄъюую уюЁшчюэЄр.",
+      "params": "{}",
+      "val_mae": 1.8893242947301594,
+      "val_rmse": 3.0252317312510897,
+      "val_r2": 0.9998301836019655,
+      "test_mae": 2.392223430775629,
+      "test_rmse": 4.759358000282102,
+      "test_r2": 0.9994715490835818,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    },
+    {
+      "model": "Ridge+PCA95",
+      "hypothesis": "PCA єьхэ№°рхЄ ЁрчьхЁэюёЄ№ ёъюЁЁхышЁютрээ√ї ыруют ш rolling-яЁшчэръют яхЁхф Ridge.",
+      "params": "{\"alpha\": 0.1}",
+      "val_mae": 2.006859640198594,
+      "val_rmse": 3.1984644643942786,
+      "val_r2": 0.9998101785044338,
+      "test_mae": 2.5645804332412783,
+      "test_rmse": 5.562327680443383,
+      "test_r2": 0.9992781930697296,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    },
+    {
+      "model": "RandomForest",
+      "hypothesis": "═хышэхщэ√щ рэёрьсы№ фхЁхт№хт ьюцхЄ яющьрЄ№ Ёхцшь√ Ё√эър ш тчршьюфхщёЄтш  яЁшчэръют.",
+      "params": "{\"max_depth\": 8, \"min_samples_leaf\": 5, \"n_estimators\": 10}",
+      "val_mae": 2.6784601044706995,
+      "val_rmse": 4.020126729544172,
+      "val_r2": 0.9997001239244525,
+      "test_mae": 2.7206943260464067,
+      "test_rmse": 4.6479491095315035,
+      "test_r2": 0.9994959998839696,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    },
+    {
+      "model": "ExtraTrees",
+      "hypothesis": "╤шы№эю ЁрэфюьшчшЁютрээ√х фхЁхт№  ьюуєЄ с√Є№ єёЄющўштхх RandomForest эр °єьэ√ї ьшэєЄэ√ї фрээ√ї.",
+      "params": "{\"max_depth\": 8, \"min_samples_leaf\": 5, \"n_estimators\": 10}",
+      "val_mae": 2.704258674814159,
+      "val_rmse": 4.068401660287692,
+      "val_r2": 0.999692878672303,
+      "test_mae": 2.8806022111570715,
+      "test_rmse": 5.5024015507472,
+      "test_r2": 0.9992936621655032,
+      "comment": "╦єў°шх ярЁрьхЄЁ√ т√сЁрэ√ яю validation MAE схч шёяюы№чютрэш  test."
+    }
+  ]
+}
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-ChildItem report
+
+
+    Каталог: C:\Users\Семён\Downloads\firesemen_max_score\report
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        08.05.2026     19:44                figures
+-a----        09.05.2026     13:41            758 cleaning_report.json
+-a----        09.05.2026     13:41            384 dataset_description.json
+-a----        09.05.2026     13:41           3788 experiment_results.csv
+-a----        09.05.2026     13:41           1707 hyperparameter_search_det
+                                                  ails.csv
+-a----        09.05.2026     13:41            125 outlier_report.json
+-a----        08.05.2026     19:44          16904 report.md
+-a----        08.05.2026     19:44         600025 report.pdf
+
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-ChildItem report\figures
+
+
+    Каталог: C:\Users\Семён\Downloads\firesemen_max_score\report\figures
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        09.05.2026     13:41         121895 correlation_matrix.png
+-a----        09.05.2026     13:41          83179 feature_importance.png
+-a----        09.05.2026     13:41          50324 pca_explained_variance.pn
+                                                  g
+-a----        09.05.2026     13:41         198032 pca_projection.png
+-a----        09.05.2026     13:41         148121 predictions_test.png
+-a----        09.05.2026     13:41         128698 price_history.png
+-a----        09.05.2026     13:41          33750 return_distribution.png
+
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-ChildItem models
+
+
+    Каталог: C:\Users\Семён\Downloads\firesemen_max_score\models
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        08.05.2026     19:44              0 .gitkeep
+-a----        09.05.2026     13:41          14012 eth_next_close_model.jobl
+                                                  ib
+
+
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-ChildItem -Recurse report,models -File |
+  Select-Object FullName,Length,LastWriteTime |
+  Format-Table -AutoSize |
+  Out-String -Width 300 |
+  Tee-Object logs\generated_files.txt
+
+FullName                                                                               Length LastWriteTime      
+--------                                                                               ------ -------------      
+C:\Users\Семён\Downloads\firesemen_max_score\report\cleaning_report.json                  758 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\dataset_description.json              384 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\experiment_results.csv               3788 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\hyperparameter_search_details.csv    1707 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\outlier_report.json                   125 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\report.md                           16904 08.05.2026 19:44:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\report.pdf                         600025 08.05.2026 19:44:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\correlation_matrix.png     121895 09.05.2026 13:41:05
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\feature_importance.png      83179 09.05.2026 13:41:05
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\pca_explained_variance.png  50324 09.05.2026 13:41:07
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\pca_projection.png         198032 09.05.2026 13:41:06
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\predictions_test.png       148121 09.05.2026 13:41:05
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\price_history.png          128698 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\report\figures\return_distribution.png     33750 09.05.2026 13:41:01
+C:\Users\Семён\Downloads\firesemen_max_score\models\.gitkeep                                0 08.05.2026 19:44:01
+C:\Users\Семён\Downloads\firesemen_max_score\models\eth_next_close_model.joblib         14012 09.05.2026 13:41:01
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Import-Csv report\experiment_results.csv |
+  Format-Table -AutoSize |
+  Out-String -Width 300 |
+  Tee-Object logs\experiment_results_table.txt
+
+model                                hypothesis                                                                                     params                                                      val_mae            val_rmse           val_r2             test_mae           test_rmse          test_r2      
+-----                                ----------                                                                                     ------                                                      -------            --------           ------             --------           ---------          -------      
+Baseline LinearRegression without FE Простая линейная модель на исходных OHLCV даст точку отсчета без feature engineering.          {}                                                          1.8758724304447618 3.0303334487693507 0.9998296580030853 2.350106878687229  4.408409759583705  0.99954670...
+Weighted blend: naive + Ridge        Взвешенный ансамбль стабилизирует ML-прогноз сильным наивным baseline.                         {"alpha": 0.1, "ml_model": "Ridge", "naive_weight": 0.93}   1.8766410215175602 3.032103762701741  0.9998294112253838 2.346854416743721  4.379624342556603  0.99955251...
+Naive close(t)                       На минутном горизонте лучшая простая эвристика - цена следующей минуты примерно равна текущей. {}                                                          1.8767422600188939 3.0362759540542257 0.9998289414402197 2.3458184647879436 4.3833252310491    0.99955175...
+Ridge                                L2-регуляризация должна стабилизировать линейную модель на скоррелированных признаках.         {"alpha": 0.1}                                              1.8876787220253755 3.0299509175214396 0.9998296533812417 2.412310603533606  4.858656044786847  0.99944926...
+ElasticNet                           L1+L2-регуляризация может занулить слабые признаки и снизить переобучение.                     {"alpha": 0.0001, "l1_ratio": 0.2}                          1.8887941319695098 3.0562228798831    0.9998266865066175 2.3910009371023677 4.767497730178985  0.99946973...
+LinearRegression                     Линейная зависимость лагов и текущих цен может быть достаточной для очень короткого горизонта. {}                                                          1.8893242947301594 3.0252317312510897 0.9998301836019655 2.392223430775629  4.759358000282102  0.99947154...
+Ridge+PCA95                          PCA уменьшает размерность скоррелированных лагов и rolling-признаков перед Ridge.              {"alpha": 0.1}                                              2.006859640198594  3.1984644643942786 0.9998101785044338 2.5645804332412783 5.562327680443383  0.99927819...
+RandomForest                         Нелинейный ансамбль деревьев может поймать режимы рынка и взаимодействия признаков.            {"max_depth": 8, "min_samples_leaf": 5, "n_estimators": 10} 2.6784601044706995 4.020126729544172  0.9997001239244525 2.7206943260464067 4.6479491095315035 0.99949599...
+ExtraTrees                           Сильно рандомизированные деревья могут быть устойчивее RandomForest на шумных минутных данных. {"max_depth": 8, "min_samples_leaf": 5, "n_estimators": 10} 2.704258674814159  4.068401660287692  0.999692878672303  2.8806022111570715 5.5024015507472    0.99929366...
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python -c "import pandas as pd; df=pd.read_csv('report/experiment_results.csv'); cols=['model','val_mae','val_rmse','test_mae','test_rmse','test_r2','params']; print(df[cols].to_string(index=False))" 2>&1 | Tee-Object logs\metrics_summary.txt
+                               model  val_mae  val_rmse  test_mae  test_rmse  test_r2                                                      params
+Baseline LinearRegression without FE 1.875872  3.030333  2.350107   4.408410 0.999547                                                          {}
+       Weighted blend: naive + Ridge 1.876641  3.032104  2.346854   4.379624 0.999553   {"alpha": 0.1, "ml_model": "Ridge", "naive_weight": 0.93}
+                      Naive close(t) 1.876742  3.036276  2.345818   4.383325 0.999552                                                          {}
+                               Ridge 1.887679  3.029951  2.412311   4.858656 0.999449                                              {"alpha": 0.1}
+                          ElasticNet 1.888794  3.056223  2.391001   4.767498 0.999470                          {"alpha": 0.0001, "l1_ratio": 0.2}
+                    LinearRegression 1.889324  3.025232  2.392223   4.759358 0.999472                                                          {}
+                         Ridge+PCA95 2.006860  3.198464  2.564580   5.562328 0.999278                                              {"alpha": 0.1}
+                        RandomForest 2.678460  4.020127  2.720694   4.647949 0.999496 {"max_depth": 8, "min_samples_leaf": 5, "n_estimators": 10}
+                          ExtraTrees 2.704259  4.068402  2.880602   5.502402 0.999294 {"max_depth": 8, "min_samples_leaf": 5, "n_estimators": 10}
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) python -c "import pandas as pd; df=pd.read_csv('report/hyperparameter_search_details.csv'); print(df.to_string(index=False))" 2>&1 | Tee-Object logs\hyperparameter_search_details.txt
+           model                                                      params split      mae     rmse       r2  mape_percent  directional_accuracy
+LinearRegression                                                          {}   val 1.889324 3.025232 0.999830      0.044664              0.495136
+           Ridge                                              {'alpha': 0.1}   val 1.887679 3.029951 0.999830      0.044624              0.494636
+           Ridge                                              {'alpha': 1.0}   val 1.892358 3.046819 0.999828      0.044736              0.492746
+           Ridge                                             {'alpha': 10.0}   val 1.901315 3.066090 0.999826      0.044951              0.493302
+           Ridge                                             {'alpha': 50.0}   val 1.927424 3.098959 0.999822      0.045576              0.493580
+      ElasticNet                          {'alpha': 0.0001, 'l1_ratio': 0.2}   val 1.888794 3.056223 0.999827      0.044649              0.492969
+      ElasticNet                           {'alpha': 0.001, 'l1_ratio': 0.2}   val 1.901744 3.044047 0.999828      0.044954              0.493413
+    RandomForest {'max_depth': 8, 'min_samples_leaf': 5, 'n_estimators': 10}   val 2.678460 4.020127 0.999700      0.063986              0.288033
+      ExtraTrees {'max_depth': 8, 'min_samples_leaf': 5, 'n_estimators': 10}   val 2.704259 4.068402 0.999693      0.064519              0.349730
+     Ridge+PCA95                                              {'alpha': 0.1}   val 2.006860 3.198464 0.999810      0.047463              0.492580
+     Ridge+PCA95                                              {'alpha': 1.0}   val 2.006866 3.198469 0.999810      0.047464              0.492580
+     Ridge+PCA95                                             {'alpha': 10.0}   val 2.006935 3.198512 0.999810      0.047465              0.492524
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-Content report\dataset_description.json 2>&1 | Tee-Object logs\dataset_description.txt
+{
+  "rows": 120000,
+  "columns": 10,
+  "time_min": "2025-07-20 03:05:00",
+  "time_max": "2025-10-11 11:04:00",
+  "missing_values": {
+    "Open time": 0,
+    "Open": 0,
+    "High": 0,
+    "Low": 0,
+    "Close": 0,
+    "Volume": 0,
+    "Quote asset volume": 0,
+    "Number of trades": 0,
+    "Taker buy base asset volume": 0,
+    "Taker buy quote asset volume": 0
+  }
+}
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-Content report\cleaning_report.json 2>&1 | Tee-Object logs\cleaning_report.txt
+{
+  "rows_initial": 120000,
+  "bad_timestamps": 0,
+  "numeric_missing_before_drop": {
+    "Open": 0,
+    "High": 0,
+    "Low": 0,
+    "Close": 0,
+    "Volume": 0,
+    "Quote asset volume": 0,
+    "Number of trades": 0,
+    "Taker buy base asset volume": 0,
+    "Taker buy quote asset volume": 0
+  },
+  "duplicate_timestamps_removed": 0,
+  "invalid_ohlcv_rows_removed": 0,
+  "time_gaps_not_1_minute": 0,
+  "rows_final": 120000,
+  "time_min": "2025-07-20 03:05:00",
+  "time_max": "2025-10-11 11:04:00",
+  "columns_final": [
+    "Open time",
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Quote asset volume",
+    "Number of trades",
+    "Taker buy base asset volume",
+    "Taker buy quote asset volume"
+  ]
+}
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) Get-Content report\outlier_report.json 2>&1 | Tee-Object logs\outlier_report.txt
+{
+  "count": 186,
+  "share": 0.0015500129167743066,
+  "z_threshold": 6.0,
+  "max_abs_log_return": 0.045160098326668674
+}
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) pytest -q 2>&1 | Tee-Object logs\pytest.txt
+....                                                                     [100%]
+============================== warnings summary ===============================
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:91: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data[f"close_ema_{span}"] = data["Close"].ewm(span=span, adjust=False).mean()
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:92: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data[f"volume_ema_{span}"] = data["Volume"].ewm(span=span, adjust=False).mean()
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["rsi_14"] = 100 - (100 / (1 + relative_strength))
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:101: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["minute"] = data[TIME_COLUMN].dt.minute
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:102: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["hour"] = data[TIME_COLUMN].dt.hour
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:103: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["dayofweek"] = data[TIME_COLUMN].dt.dayofweek
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["minute_sin"] = np.sin(2 * np.pi * data["minute"] / 60)
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:105: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["minute_cos"] = np.cos(2 * np.pi * data["minute"] / 60)
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:106: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["hour_sin"] = np.sin(2 * np.pi * data["hour"] / 24)
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:107: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["hour_cos"] = np.cos(2 * np.pi * data["hour"] / 24)
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:108: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["dayofweek_sin"] = np.sin(2 * np.pi * data["dayofweek"] / 7)
+
+tests/test_features.py::test_target_is_next_close
+tests/test_features.py::test_no_future_close_feature_is_created
+tests/test_predict.py::test_clean_and_feature_pipeline_on_sample
+  C:\Users\╤хь╕э\Downloads\firesemen_max_score\src\eth_price\features.py:109: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    data["dayofweek_cos"] = np.cos(2 * np.pi * data["dayofweek"] / 7)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 35 warnings in 0.59s
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) ruff check . 2>&1 | Tee-Object logs\ruff_check.txt
+scripts\train.py:20:101: E501 Line too long (102 > 100)
+src\eth_price\api.py:36:101: E501 Line too long (106 > 100)
+src\eth_price\api.py:70:101: E501 Line too long (105 > 100)
+src\eth_price\data.py:9:1: UP035 [*] Import from `collections.abc` instead: `Iterable`
+src\eth_price\metrics.py:16:101: E501 Line too long (107 > 100)
+src\eth_price\modeling.py:32:81: UP037 [*] Remove quotes from type annotation
+src\eth_price\streamlit_app.py:38:101: E501 Line too long (103 > 100)
+src\eth_price\train.py:3:1: I001 [*] Import block is un-sorted or un-formatted
+src\eth_price\train.py:34:101: E501 Line too long (103 > 100)
+src\eth_price\train.py:76:101: E501 Line too long (110 > 100)
+src\eth_price\train.py:142:101: E501 Line too long (123 > 100)
+src\eth_price\train.py:162:101: E501 Line too long (101 > 100)
+src\eth_price\train.py:197:101: E501 Line too long (113 > 100)
+src\eth_price\train.py:210:101: E501 Line too long (102 > 100)
+src\eth_price\train.py:263:101: E501 Line too long (125 > 100)
+src\eth_price\train.py:264:101: E501 Line too long (106 > 100)
+src\eth_price\train.py:266:101: E501 Line too long (110 > 100)
+src\eth_price\train.py:267:101: E501 Line too long (119 > 100)
+src\eth_price\train.py:268:101: E501 Line too long (109 > 100)
+src\eth_price\train.py:269:101: E501 Line too long (107 > 100)
+src\eth_price\train.py:270:101: E501 Line too long (106 > 100)
+src\eth_price\train.py:273:101: E501 Line too long (109 > 100)
+src\eth_price\visualization.py:3:1: I001 [*] Import block is un-sorted or un-formatted
+src\eth_price\visualization.py:30:101: E501 Line too long (107 > 100)
+src\eth_price\visualization.py:48:101: E501 Line too long (104 > 100)
+tests\test_features.py:36:101: E501 Line too long (114 > 100)
+Found 26 errors.
+[*] 4 fixable with the `--fix` option.
+PS C:\Users\Семён\Downloads\firesemen_max_score>
+(.venv) ruff format --check . 2>&1 | Tee-Object logs\ruff_format_check.txt
+Would reformat: scripts\train.py
+Would reformat: src\eth_price\api.py
+Would reformat: src\eth_price\features.py
+Would reformat: src\eth_price\metrics.py
+Would reformat: src\eth_price\streamlit_app.py
+Would reformat: src\eth_price\train.py
+Would reformat: src\eth_price\visualization.py
+Would reformat: tests\test_features.py
+8 files would be reformatted, 9 files already formatted
+PS C:\Users\Семён\Downloads\firesemen_max_score>
